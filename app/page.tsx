@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Home() {
   return (
@@ -23,8 +24,8 @@ export default function Home() {
                 <li className="flex items-center">
                   <svg
                     className="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path
@@ -43,8 +44,8 @@ export default function Home() {
                 <li className="flex items-center">
                   <svg
                     className="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path
@@ -62,8 +63,8 @@ export default function Home() {
                 <li className="flex items-center">
                   <svg
                     className="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path
@@ -85,6 +86,8 @@ export default function Home() {
                 {" "}
                 Hello{" "}
               </Button>
+              <p></p>
+              <ModeToggle />
             </div>
             <div className="pt-8 text-base font-semibold leading-7">
               <p className="text-gray-900">Want to dig deeper into Tailwind?</p>
