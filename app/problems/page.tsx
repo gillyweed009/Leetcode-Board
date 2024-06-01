@@ -1,6 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { ModeToggle } from "@/components/mode-toggle"
-
 export default function Problem() {
   return (
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
