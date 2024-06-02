@@ -16,18 +16,28 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
+import { useRouter } from "next/navigation"
+import { router } from "next/client"
+
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  problemID: z.string(),
+  //problemID: z.coerce.number({
+  //required_error: "Problem ID is required",
+  //invalid_type_error: "Problem ID is invalid",
+  //})
+  // .positive(),
+  //username: z.string().min(2, {
+  // message: "Username must be at least 2 characters.",
+  // }),
 })
 
 export function LeetcodeForms() {
+  const router = useRouter()
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      problemID: " ",
     },
   })
 
@@ -35,6 +45,7 @@ export function LeetcodeForms() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    router.push('/problems/1234')
     console.log(values)
   }
 
@@ -43,15 +54,15 @@ export function LeetcodeForms() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="problemID"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Problem ID</FormLabel>
               <FormControl>
                 <Input placeholder="shadcn" {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name.
+                The number present to the left of problem name.
               </FormDescription>
               <FormMessage />
             </FormItem>

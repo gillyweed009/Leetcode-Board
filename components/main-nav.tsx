@@ -19,36 +19,15 @@ export function MainNav() {
       </Link>
       <nav className="flex items-center gap-4 text-sm lg:gap-6">
         <Link
-          href="https://cfstep.com/projects/leetcodeboard/resources/setup/"
+          href="/problems"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname === "/Problem 1" ? "text-foreground" : "text-foreground/60"
           )}
         >
-          Problem 1
+          Problems
         </Link>
-        <Link
-          href="https://cfstep.com/projects/leetcodeboard/resources/tailwind-shadcn/"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/docs/components")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Problem 2
-        </Link>
-        <Link
-          href="https://cfstep.com/projects/leetcodeboard/resources/header-footer/"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/themes")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Problem 3
-        </Link>
+
         <Link
           href="https://ui.shadcn.com/examples/mail"
           className={cn(
