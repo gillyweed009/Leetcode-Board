@@ -1,12 +1,22 @@
-import { Button } from "@/components/ui/button"
-import { ModeToggle } from "@/components/mode-toggle"
+import dynamic from "next/dynamic";
 
-export default function Home() {
+// Since client components get prerenderd on server as well hence importing
+// the excalidraw stuff dynamically with ssr false
+
+const ExcalidrawWrapper = dynamic(
+  async () =>
+    (await import("../../../components/custom/excalidraw-wrapper")).default,
+  {
+    ssr: false,
+  },
+);
+
+export default function Problems() {
   return (
-    <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
-      <div className="relative px-6 pt-10 pb-8 shadow-xl ring-2 ring-grey ring-opacity-10 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
-        <div className="flex space-x-4">This is the problem specific page.</div>
+    <main>
+      <div className="w-screen">
+      <ExcalidrawWrapper />
       </div>
-    </div>
+    </main>
   )
 }
