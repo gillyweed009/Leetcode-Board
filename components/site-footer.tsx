@@ -7,7 +7,7 @@ export function SiteFooter() {
         <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
           <a
-            href={siteConfig.links.twitter}
+            href="https://www.instagram.com/_adityas_11?igsh=MXdhMmp2ZTVnYjFvcQ=="
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
