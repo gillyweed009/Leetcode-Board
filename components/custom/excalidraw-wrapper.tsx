@@ -1,12 +1,38 @@
 "use client";
-import { Excalidraw, convertToExcalidrawElements, WelcomeScreen, MainMenu } from "@excalidraw/excalidraw"
+import {
+  Excalidraw,
+  convertToExcalidrawElements,
+  WelcomeScreen,
+  MainMenu,
+  serializeAsJSON,
+} from "@excalidraw/excalidraw"
+
+import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types"
+import { AppState,BinaryFiles} from  "@excalidraw/excalidraw/types/types"
 
 //import "@excalidraw/excalidraw/index.css";
 
 const ExcalidrawWrapper: React.FC = () => {
+  const onchange = (
+    elements : readonly ExcalidrawElement[],
+    appState : AppState,
+    files : BinaryFiles
+    ): void => {
+    console.log("function invoked")
+    const content = serializeAsJSON(elements,appState,files,"local")
+    localStorage.setItem("excalidraw", content)
+  }
+
+  const retrieveInitialData = ()  => {
+    const content : string|null = localStorage.getItem("excalidraw")
+    if (content != null) {
+      return JSON.parse(content)
+    }
+  }
+
   return (
     <div className="h-screen">
-      <Excalidraw >
+      <Excalidraw onChange={onchange} initialData={retrieveInitialData()}  >
         <WelcomeScreen/>
          <WelcomeScreen.Hints.HelpHint/>.
          <WelcomeScreen.Hints.MenuHint/>.
