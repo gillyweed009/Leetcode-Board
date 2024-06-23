@@ -1,6 +1,5 @@
 "use client"
 import dynamic from "next/dynamic";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 import { useParams } from "next/navigation"
 
 
@@ -16,8 +15,8 @@ const ExcalidrawWrapper = dynamic(
 );
 // w-screen
 export default function Problems() {
-  const params:Params=useParams<{id : string}>()
-  const identifier:string=params.id
+  const params = useParams<{id:string}>()
+  const identifier= params.id
   return (
     <main>
       <div className="w-screen">
