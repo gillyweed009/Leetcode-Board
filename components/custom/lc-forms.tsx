@@ -45,7 +45,7 @@ export function LeetcodeForms() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    router.push('/problems/1234')
+    router.push(`/problems/${values.problemID}`)
     console.log(values)
   }
 
