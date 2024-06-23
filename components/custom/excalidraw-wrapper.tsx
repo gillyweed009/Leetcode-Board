@@ -11,8 +11,11 @@ import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types"
 import { AppState,BinaryFiles} from  "@excalidraw/excalidraw/types/types"
 
 //import "@excalidraw/excalidraw/index.css";
+interface ExcalidrawWrapperProps {
+  identifier :string
+}
 
-const ExcalidrawWrapper: React.FC = () => {
+const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({identifier}) => {
   let lastSceneVersion : number = -1
   const onchange = (
     elements : readonly ExcalidrawElement[],
@@ -23,13 +26,13 @@ const ExcalidrawWrapper: React.FC = () => {
     if(sceneVersion > lastSceneVersion){
       console.log("persisted to local storage")
       const content = serializeAsJSON(elements,appState,files,"local")
-      localStorage.setItem("excalidraw", content)
+      localStorage.setItem("excalidraw" + "_" + identifier , content)
       lastSceneVersion = sceneVersion
     }
   }
 
   const retrieveInitialData = ()  => {
-    const content : string|null = localStorage.getItem("excalidraw")
+    const content : string|null = localStorage.getItem("excalidraw"+"_"+identifier)
     if (content != null) {
       return JSON.parse(content)
     }
