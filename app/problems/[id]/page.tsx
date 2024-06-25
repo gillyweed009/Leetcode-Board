@@ -1,6 +1,7 @@
 "use client"
 import dynamic from "next/dynamic";
 import { useParams } from "next/navigation"
+import Loading from '../[id]/loading';
 
 
 // Since client components get prerenderd on server as well hence importing
@@ -11,6 +12,7 @@ const ExcalidrawWrapper = dynamic(
     (await import("../../../components/custom/excalidraw-wrapper")).default,
   {
     ssr: false,
+    loading: () => <Loading />,
   },
 );
 
