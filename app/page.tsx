@@ -30,7 +30,7 @@ export default function Home() {
             Discover a variety of features and tools we offer. Navigate through our site to find forms, resources, and much more. We aim to provide the best user experience for all your needs.
           </p>
           <Image
-            src="/bleach.jpg "
+            src="/bleach.jpg"
             alt="Welcome Image"
             width={600}
             height={400}

@@ -13,14 +13,15 @@ const ExcalidrawWrapper = dynamic(
     ssr: false,
   },
 );
-// w-screen
+
 export default function Problems() {
   const params = useParams<{id:string}>()
   const identifier= params.id
+  console.log(params.id)
   return (
     <main>
-      <div className="w-screen">
-      <ExcalidrawWrapper identifier={identifier}/>
+      <div className="w-screen ">
+        <ExcalidrawWrapper identifier={identifier} />
       </div>
     </main>
   )

@@ -22,17 +22,17 @@ const ExcalidrawWrapper: React.FC<ExcalidrawWrapperProps> = ({identifier}) => {
     appState : AppState,
     files : BinaryFiles
     ): void => {
-    const sceneVersion : number= getSceneVersion(elements)
+    const sceneVersion= getSceneVersion(elements)
     if(sceneVersion > lastSceneVersion){
       console.log("persisted to local storage")
       const content = serializeAsJSON(elements,appState,files,"local")
-      localStorage.setItem("excalidraw" + "_" + identifier , content)
+      localStorage.setItem("excalidraw" + "_" + (identifier) , content)
       lastSceneVersion = sceneVersion
     }
   }
 
   const retrieveInitialData = ()  => {
-    const content : string|null = localStorage.getItem("excalidraw"+"_"+identifier)
+    const content : string|null = localStorage.getItem("excalidraw" + "_" + (identifier))
     if (content != null) {
       return JSON.parse(content)
     }
